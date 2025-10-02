@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+    /* Light mode */
+    --color-base_light: #ffffff;
+
+    /* Dark mode */
+    --color-base_dark: #111827
+}
