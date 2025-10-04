@@ -3,7 +3,15 @@
 @theme {
     /* Light mode */
     --color-base_light: #ffffff;
+    --color-main-100: oklch(51.1% 0.096 186.391);
 
     /* Dark mode */
-    --color-base_dark: #111827
+    --color-base_dark: #111827;
+
+    
+}
+
+@theme {
+    --font-dana: "dana", sans-serif;
+    --font-lalezar: "Lalezar Regular", sans-serif;
 }
