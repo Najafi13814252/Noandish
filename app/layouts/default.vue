@@ -1,5 +1,7 @@
 <template>
-    <TemplatesNavbar />
+    <div class="font-dana">
+        <TemplatesNavbar />
 
-    <slot />
+        <slot />
+    </div>
 </template>

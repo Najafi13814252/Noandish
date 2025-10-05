@@ -1,3 +1,5 @@
 <template>
     <TemplatesHero />
+
+    <TemplatesPopularCourses />
 </template>
