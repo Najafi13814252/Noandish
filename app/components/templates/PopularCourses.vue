@@ -1,12 +1,14 @@
 <template>
-    <ModulesSectionHeader icon-name="solar:heart-bold" icon-color="text-red-400"/>
+    <div class="flex flex-col">
+        <ModulesSectionHeader title="محبوب" icon-name="solar:heart-bold" icon-color="text-red-400" />
 
-    <ModulesCards :filter="filterPopular" class="flex gap-6 mx-5" #default="{ card }">
-        <div class="flex items-center gap-1">
-            <span class="text-xl font-bold">{{ card.price.toLocaleString('fa-IR') }}</span>
-            <span class="text-sm text-gray-400">تومان</span>
-        </div>
-    </ModulesCards>
+        <ModulesCard :filter="filterPopular" class="flex gap-6" #default="{ card }">
+            <div class="flex items-center gap-1">
+                <span class="text-xl font-bold">{{ card.price.toLocaleString('fa-IR') }}</span>
+                <span class="text-sm text-gray-400">تومان</span>
+            </div>
+        </ModulesCard>
+    </div>
 </template>
 
 <script setup lang="ts">
