@@ -1,5 +1,5 @@
 <template>
-    <div class="relative mx-5">
+    <div class="relative mx-3 md:mx-5">
         <ClientOnly>
             <swiper-container class="overflow-hidden h-full" ref="containerRef" :slides-per-view="4.6" :space-between="20"
                 :slides-per-group="1" :breakpoints="{

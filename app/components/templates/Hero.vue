@@ -1,5 +1,5 @@
 <template>
-    <div class="flex md:flex-row flex-col-reverse items-center justify-between px-6 rounded-lg font-dana">
+    <div class="flex md:flex-row flex-col-reverse items-center justify-between px-2 md:px-6 rounded-lg font-dana">
         <main class="text-center md:text-right">
             <p class="md:text-5xl text-4xl text-teal-700 leading-normal font-lalezar">آموزش‌های تخصصی همراه با توسعه فردی
                 برای سازمان‌ها و شرکت‌ها <br> با <span class="text-main-200">بنیاد تعالی آموزش نو اندیش</span></p>
@@ -9,16 +9,16 @@
 
             <!-- Buttons -->
             <div class="flex gap-4 items-center justify-center md:justify-normal">
-                <div
-                    class="flex items-center gap-2 text-first bg-second px-6 py-2 rounded-full text-main-100 bg-yellow-400 hover:bg-yellow-300 duration-200 cursor-pointer">
+                <button
+                    class="w-full md:w-fit flex items-center justify-center gap-2 text-first bg-second px-6 py-2 rounded-full text-main-100 bg-yellow-400 hover:bg-yellow-300 duration-200 cursor-pointer">
                     <Icon class="text-2xl" name="solar:lightbulb-broken" />
-                    <button class="text-lg font-medium cursor-pointer">شروع کنید</button>
-                </div>
-                <div
-                    class="flex items-center gap-2 text-white bg-first px-6 py-2 rounded-full bg-main-100 hover:bg-teal-600 duration-200 cursor-pointer">
+                    <span class="text-lg font-medium cursor-pointer">شروع کنید</span>
+                </button>
+                <button
+                    class="w-full md:w-fit flex items-center justify-center gap-2 text-white bg-first px-6 py-2 rounded-full bg-main-100 hover:bg-teal-600 duration-200 cursor-pointer">
                     <Icon class="text-2xl" name="solar:notebook-minimalistic-linear" />
-                    <button class="text-lg font-medium cursor-pointer">دوره‌های ما</button>
-                </div>
+                    <span class="text-lg font-medium cursor-pointer">دوره‌های ما</span>
+                </button>
             </div>
         </main>
 
