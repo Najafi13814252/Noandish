@@ -54,7 +54,21 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
+interface Item {
+  id: number
+  title?: string
+  icon_name?: string
+}
+
+interface Links {
+  quick: Item[]
+  useful: Item[]
+  concat: Item[]
+  apps: Item[]
+}
+
 const links = ref({
     quick: [
         { id: 1, title: 'صفحه اصلی' },

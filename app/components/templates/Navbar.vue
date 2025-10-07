@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="hidden md:flex items-center gap-4">
-            <button class="p-2 text-main-100 border border-main-100 rounded-full flex cursor-pointer">
+            <button class="p-2 text-main-100 border border-main-100 rounded-full flex cursor-pointer" aria-label="color_mode">
                 <Icon class="text-2xl" name="solar:sun-2-outline" />
             </button>
 

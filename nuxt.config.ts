@@ -14,6 +14,10 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      title: 'بنیاد تعالی آموزشی نو اندیش',
+      meta: [
+        { name: 'description', content: 'پلتفرم آموزشی با هدف ارائه آموزش‌های تخصصی و توسعه فردی برای سازمان‌ها و شرکت‌ها' },
+      ],
       htmlAttrs: {
         dir: 'rtl'
       },

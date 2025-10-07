@@ -16,7 +16,7 @@
                     </div>
 
                     <!-- image of course -->
-                    <NuxtImg :src="card.src" alt="Course" width="400" height="250" format="avif" quality="75"
+                    <NuxtImg :src="card.src" alt="Course" width="400" height="250" format="webp" quality="75"
                         sizes="(max-width: 640px) 100vw, 400px"
                         class="w-full h-40 object-cover rounded-lg border border-gray-200" loading="lazy" />
 
@@ -78,11 +78,11 @@
         </ClientOnly>
 
         <div class="hidden md:flex items-center gap-2 absolute bottom-full left-32">
-            <button class="flex p-2 rounded-full border border-main-100 text-main-100 cursor-pointer"
+            <button class="flex p-2 rounded-full border border-main-100 text-main-100 cursor-pointer" aria-label="prev_btn"
                 @click="swiper.prev()">
                 <Icon class="text-xl" name="solar:alt-arrow-right-outline" />
             </button>
-            <button class="flex p-2 rounded-full border border-main-100 text-main-100 cursor-pointer"
+            <button class="flex p-2 rounded-full border border-main-100 text-main-100 cursor-pointer" aria-label="next_btn"
                 @click="swiper.next()">
                 <Icon class="text-xl" name="solar:alt-arrow-left-outline" />
             </button>

@@ -22,6 +22,6 @@
             </div>
         </main>
 
-        <NuxtImg src="/hero.avif" width="860" height="860" alt="Hero" preload/>
+        <NuxtImg src="/hero.avif" width="860" height="860" alt="Hero" :placeholder="[640, 640, 75, 5]" preload/>
     </div>
 </template>
