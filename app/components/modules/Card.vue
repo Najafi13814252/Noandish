@@ -3,7 +3,7 @@
         <ClientOnly>
             <swiper-container class="overflow-hidden h-full" ref="containerRef" :slides-per-view="4.6" :space-between="20"
                 :slides-per-group="1" :breakpoints="{
-                    0: { slidesPerView: 1 },       // موبایل
+                    0: { slidesPerView: 1.3 },       // موبایل
                     640: { slidesPerView: 4.7 }    // از 640px به بالا
                 }">
                 <swiper-slide v-for="card in filteredCourses" :key="card.id"

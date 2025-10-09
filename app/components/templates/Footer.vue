@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-16 w-fit mx-4 md:pr-20">
+    <footer class=" mt-16 w-fit mx-4 md:pr-20">
         <div class="flex flex-col md:flex-row gap-16 md:gap-36 items-center text-gray-100">
             <!-- introduction -->
             <div class="flex flex-col gap-6">
@@ -7,7 +7,8 @@
                     <NuxtImg src="/logo.avif" width="75" height="75" class="rounded-2xl w-14" format="avif" alt="Logo" />
                     <span class="text-2xl font-lalezar text-main-200">بنیاد نواندیش</span>
                 </div>
-                <p class="w-full md:w-80">بنیاد تعالی آموزشی نواندیش با هدف ارتقاء دانش و مهارت‌های تخصصی در سازمان‌ها و شرکت‌ها، با
+                <p class="w-full md:w-80">بنیاد تعالی آموزشی نواندیش با هدف ارتقاء دانش و مهارت‌های تخصصی در سازمان‌ها و
+                    شرکت‌ها، با
                     بهره‌گیری از اساتید
                     مجرب و محتوای به‌روز، بستری حرفه‌ای برای آموزش و توسعه منابع انسانی فراهم کرده است.
                     ما همراه شما هستیم در مسیر رشد، یادگیری و تعالی سازمانی.
@@ -51,25 +52,34 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </footer>
+
+    <!-- <footer class="absolute bottom-0  flex">
+        <div class="flex items-center mx-2 text-main-100 bg-white" v-for="menu in mobileFooter" :key="menu.id">
+            <div class="flex flex-col gap-2">
+                <Icon class="text-xl" :name="menu.icon_name" />
+                <span>{{ menu.title }}</span>
+            </div>
+        </div>
+    </footer> -->
 </template>
 
 <script setup lang="ts">
 
 interface Item {
-  id: number
-  title?: string
-  icon_name?: string
+    id: number
+    title?: string
+    icon_name?: string
 }
 
 interface Links {
-  quick: Item[]
-  useful: Item[]
-  concat: Item[]
-  apps: Item[]
+    quick: Item[]
+    useful: Item[]
+    concat: Item[]
+    apps: Item[]
 }
 
-const links = ref({
+const links = ref<Links>({
     quick: [
         { id: 1, title: 'صفحه اصلی' },
         { id: 2, title: 'درباره ما' },
@@ -94,4 +104,12 @@ const links = ref({
         { id: 4, icon_name: 'akar-icons:whatsapp-fill' }
     ]
 })
+
+// const mobileFooter = ref<Item[]>([
+//     { id: 1, title: 'خانه', icon_name: 'solar:home-angle-outline' },
+//     { id: 1, title: 'جستجو', icon_name: 'solar:minimalistic-magnifer-outline' },
+//     { id: 1, title: 'دسته‌بندی‌ها', icon_name: 'solar:widget-2-outline' },
+//     { id: 1, title: 'آموزش‌های من', icon_name: 'solar:notebook-outline' },
+//     { id: 1, title: 'پروفایل', icon_name: 'solar:user-outline' }
+// ])
 </script>

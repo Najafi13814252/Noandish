@@ -1,14 +1,17 @@
 <template>
     <nav class="flex justify-between items-center ml-2 md:mx-10 my-2 md:my-5 font-dana font-medium">
-        <div class="flex items-center w-full md:w-fit gap-1 md:gap-10">
+        <div class="flex items-center gap-1 md:gap-10">
+            <!-- Logo -->
             <NuxtImg src="/logo.avif" width="75" height="75" format="avif" alt="Logo" preload />
 
+            <!-- Category -->
             <button class="hidden md:flex items-center gap-1 text-main-100 text-lg">
                 <Icon class="text-xl" name="solar:widget-2-outline" />
                 دسته‌بندی‌ها
             </button>
 
-            <div class="relative w-full">
+            <!-- Search Box -->
+            <div class="hidden md:block relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 ">
                     <Icon name="solar:magnifer-outline" />
                 </div>
@@ -17,12 +20,14 @@
                     placeholder="جستجو...">
             </div>
         </div>
-        <div class="hidden md:flex items-center gap-4">
+        <div class="flex items-center gap-4">
+            <!-- System Mode -->
             <button class="p-2 text-main-100 border border-main-100 rounded-full flex cursor-pointer" aria-label="color_mode">
                 <Icon class="text-2xl" name="solar:sun-2-outline" />
             </button>
 
-            <button class="px-4 py-2 text-main-100 rounded-lg border border-main-100 cursor-pointer">ورود | ثبت‌نام</button>
+            <!-- Register -->
+            <button class="md:block px-4 py-2 text-main-100 rounded-lg border border-main-100 cursor-pointer" @click="$emit('openLogin')">ورود | ثبت‌نام</button>
         </div>
     </nav>
 </template>
