@@ -3,8 +3,8 @@
         <ClientOnly>
             <swiper-container class="overflow-hidden h-full" ref="containerRef" :slides-per-view="4.6" :space-between="20"
                 :slides-per-group="1" :breakpoints="{
-                    0: { slidesPerView: 1.3 },       // موبایل
-                    640: { slidesPerView: 4.7 }    // از 640px به بالا
+                    0: { slidesPerView: 1.1 },       // موبایل
+                    640: { slidesPerView: 4.6 }    // از 640px به بالا
                 }">
                 <swiper-slide v-for="card in filteredCourses" :key="card.id"
                     class="flex flex-col relative shrink-0 gap-4 border bg-white w-full h-full border-teal-200 rounded-2xl shadow-md shadow-teal-200 p-3 my-4 cursor-pointer transform transition-transform duration-200 hover:scale-105">
@@ -12,7 +12,7 @@
                     <!-- save courses -->
                     <div
                         class="absolute right-6 top-6 bg-white rounded-full flex items-center p-1 shadow opacity-85 hover:scale-110 duration-200">
-                        <Icon class="text-xl text-first" name="solar:bookmark-line-duotone" />
+                        <Icon class="text-xl text-main-100" name="solar:bookmark-line-duotone" />
                     </div>
 
                     <!-- image of course -->
@@ -46,7 +46,8 @@
                         <div class="flex justify-between">
                             <!-- profile -->
                             <div class="flex items-center gap-2">
-                                <!-- <img class="w-9 h-9 rounded-full" src="@/public/images/person.jpg" alt="teacher"> -->
+                                <NuxtImg src="/images/person.webp" alt="profile_teacher" width="36" height="36" format="webp" quality="75"
+                                    class="object-cover rounded-full" loading="lazy" />
                                 <div class="flex flex-col">
                                     <span class="text-gray-800 font-medium">{{ card.teacher }}</span>
                                     <span class="text-teal-500 text-sm font-medium">مدرس</span>

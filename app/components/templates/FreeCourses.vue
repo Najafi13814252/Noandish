@@ -3,8 +3,8 @@
         <ModulesSectionHeader title="رایگان" icon-name="solar:fire-bold" icon-color="text-orange-400" />
 
         <ModulesCard :filter="filterFree" class="flex gap-6" #default="{ card }">
-            <div class="flex justify-between gap-2 items-center w-full">
-                <span class="text-first font-bold text-xl">رایگان!</span>
+            <div class="flex flex-row-reverse justify-between gap-2 items-center w-full">
+                <span class="text-teal-500 font-bold text-xl">رایگان!</span>
                 <span class="flex items-center text-sm text-gray-400 line-through">{{ card.price.toLocaleString('fa-IR') }} تومان</span>
             </div>
         </ModulesCard>
