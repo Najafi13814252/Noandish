@@ -1,5 +1,5 @@
 <template>
-    <footer class=" mt-16 w-fit mx-4 md:pr-20">
+    <footer class="mt-16 w-fit mx-4 md:pr-20">
         <div class="flex flex-col md:flex-row gap-16 md:gap-36 items-center text-gray-100">
             <!-- introduction -->
             <div class="flex flex-col gap-6">
@@ -54,14 +54,12 @@
         </div>
     </footer>
 
-    <!-- <footer class="absolute bottom-0  flex">
-        <div class="flex items-center mx-2 text-main-100 bg-white" v-for="menu in mobileFooter" :key="menu.id">
-            <div class="flex flex-col gap-2">
-                <Icon class="text-xl" :name="menu.icon_name" />
-                <span>{{ menu.title }}</span>
-            </div>
+    <div class="fixed bottom-0 w-full flex md:hidden justify-between items-center py-2 px-4 z-20 bg-white shadow-lg border-t border-t-gray-200">
+        <div class="flex flex-col items-center gap-1 text-main-100 cursor-pointer" v-for="menu in mobileFooter" :key="menu.id">
+            <Icon class="text-lg" :name="menu.icon_name!" />
+            <span class="text-xs">{{ menu.title }}</span>
         </div>
-    </footer> -->
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -105,11 +103,11 @@ const links = ref<Links>({
     ]
 })
 
-// const mobileFooter = ref<Item[]>([
-//     { id: 1, title: 'خانه', icon_name: 'solar:home-angle-outline' },
-//     { id: 1, title: 'جستجو', icon_name: 'solar:minimalistic-magnifer-outline' },
-//     { id: 1, title: 'دسته‌بندی‌ها', icon_name: 'solar:widget-2-outline' },
-//     { id: 1, title: 'آموزش‌های من', icon_name: 'solar:notebook-outline' },
-//     { id: 1, title: 'پروفایل', icon_name: 'solar:user-outline' }
-// ])
+const mobileFooter = ref<Item[]>([
+    { id: 1, title: 'خانه', icon_name: 'solar:home-angle-outline' },
+    { id: 1, title: 'جستجو', icon_name: 'solar:minimalistic-magnifer-outline' },
+    { id: 1, title: 'دسته‌بندی‌ها', icon_name: 'solar:widget-2-outline' },
+    { id: 1, title: 'آموزش‌های من', icon_name: 'solar:notebook-outline' },
+    { id: 1, title: 'پروفایل', icon_name: 'solar:user-outline' }
+])
 </script>

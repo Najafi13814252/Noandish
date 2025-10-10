@@ -1,5 +1,5 @@
 <template>
-    <div class="font-dana">
+    <div :class="['font-dana', showLogin ? 'fixed md:static' : '']">
         <TemplatesNavbar @open-login="showLogin = true"/>
 
         <main>
@@ -7,7 +7,7 @@
         </main>
 
         <footer>
-            <div class="bg-main-100 py-10">
+            <div class="bg-main-100 py-10 my-10 md:my-0">
                 <TemplatesNewsletter />
                 <TemplatesFooter />
             </div>
