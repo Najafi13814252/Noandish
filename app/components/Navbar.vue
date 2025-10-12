@@ -1,8 +1,10 @@
 <template>
-    <nav class="flex justify-between items-center ml-2 md:mx-10 my-2 md:my-5 font-dana font-medium">
+    <nav class="flex justify-between items-center ml-2 md:mx-10 my-2 md:my-2 font-dana font-medium">
         <div class="flex items-center gap-1 md:gap-10">
             <!-- Logo -->
-            <NuxtImg src="/logo.avif" width="75" height="75" format="avif" alt="Logo" preload />
+            <NuxtLink to="/">
+                <NuxtImg src="/logo.avif" width="75" height="75" format="avif" alt="Logo" preload />
+            </NuxtLink>
 
             <!-- Category -->
             <button class="hidden md:flex items-center gap-1 text-main-100 text-lg">

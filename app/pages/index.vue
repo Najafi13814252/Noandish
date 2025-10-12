@@ -1,11 +1,11 @@
 <template>
-    <TemplatesHero />
+    <Hero />
 
     <div class="flex flex-col gap-20 my-32">
-        <LazyTemplatesPopularCourses />
-        <LazyTemplatesCategory />
-        <LazyTemplatesDiscountCourses />
-        <LazyTemplatesFreeCourses />
-        <LazyTemplatesIntroduction />
+        <LazyPopularCourses />
+        <LazyCategory />
+        <LazyDiscountCourses />
+        <LazyFreeCourses />
+        <LazyIntroduction />
     </div>
 </template>

@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-col">
-        <ModulesSectionHeader title="تخفیفی" icon-name="solar:sale-bold" icon-color="text-blue-400" />
+        <SectionHeader title="تخفیفی" icon-name="solar:sale-bold" icon-color="text-blue-400" />
 
-        <ModulesCard :filter="filterDiscount" class="flex gap-6" #default="{ card }">
+        <Card :filter="filterDiscount" class="flex gap-6" #default="{ card }">
             <div class="flex justify-between items-center gap-4 w-full">
                 <div class="flex items-center gap-2">
                     <span class="bg-red-500 text-white px-2 font-semibold rounded">{{ card.discount.toLocaleString('fa-IR') }}%</span>
@@ -14,7 +14,7 @@
                     <span class="text-sm text-gray-400">تومان</span>
                 </div>
             </div>
-        </ModulesCard>
+        </Card>
     </div>
 </template>
 

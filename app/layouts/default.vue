@@ -1,6 +1,6 @@
 <template>
-    <div :class="['font-dana', showLogin ? 'fixed md:static' : '']">
-        <TemplatesNavbar @open-login="showLogin = true"/>
+    <div class="font-dana">
+        <Navbar @open-login="showLogin = true"/>
 
         <main>
             <slot />
@@ -8,13 +8,13 @@
 
         <footer>
             <div class="bg-main-100 py-10 my-10 md:my-0">
-                <TemplatesNewsletter />
-                <TemplatesFooter />
+                <Newsletter />
+                <Footer />
             </div>
         </footer>
     </div>
 
-    <TemplatesLogin v-if="showLogin" @close-login="showLogin = false"/>
+    <Login v-if="showLogin" @close-login="showLogin = false"/>
 </template>
 
 <script setup>

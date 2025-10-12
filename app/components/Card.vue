@@ -16,13 +16,17 @@
                     </div>
 
                     <!-- image of course -->
-                    <NuxtImg :src="card.src" alt="Course" width="400" height="250" format="webp" quality="75"
+                    <NuxtLink :to="`/courses/${card.title}`">
+                        <NuxtImg :src="card.src" alt="Course" width="400" height="250" format="webp" quality="75"
                         sizes="(max-width: 640px) 100vw, 400px"
                         class="w-full h-40 object-cover rounded-lg border border-gray-200" loading="lazy" />
+                    </NuxtLink>
 
                     <div class="flex flex-col gap-7">
                         <!-- title of course-->
-                        <span class="text-lg font-bold text-gray-800">{{ card.title }}</span>
+                        <NuxtLink :to="`/courses/${card.title}`">
+                            <span class="text-lg font-bold text-gray-800">{{ card.title }}</span>
+                        </NuxtLink>
 
                         <!-- details of course -->
                         <div class="flex gap-5 text-gray-500 text-sm font-medium h-2">
@@ -45,13 +49,9 @@
                         <!-- profile of teacher -->
                         <div class="flex justify-between">
                             <!-- profile -->
-                            <div class="flex items-center gap-2">
-                                <NuxtImg src="/images/person.webp" alt="profile_teacher" width="36" height="36" format="webp" quality="75"
-                                    class="object-cover rounded-full" loading="lazy" />
-                                <div class="flex flex-col">
-                                    <span class="text-gray-800 font-medium">{{ card.teacher }}</span>
-                                    <span class="text-teal-500 text-sm font-medium">مدرس</span>
-                                </div>
+                            <div class="flex items-center gap-1">
+                                <Icon class="text-lg text-main-100" name="solar:user-linear"/>
+                                <span class="text-sm text-gray-400">{{ card.teacher }}</span>
                             </div>
 
                             <!-- rate -->

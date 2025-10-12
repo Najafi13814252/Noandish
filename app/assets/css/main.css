@@ -14,3 +14,7 @@
     --font-dana: "dana", sans-serif;
     --font-lalezar: "Lalezar Regular", sans-serif;
 }
+
+.course-detail {
+    @apply bg-gray-200 p-4 rounded-xl
+}

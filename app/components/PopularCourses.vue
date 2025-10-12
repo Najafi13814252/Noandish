@@ -1,13 +1,13 @@
 <template>
     <div class="flex flex-col">
-        <ModulesSectionHeader title="محبوب" icon-name="solar:heart-bold" icon-color="text-red-400" />
+        <SectionHeader title="محبوب" icon-name="solar:heart-bold" icon-color="text-red-400" />
 
-        <ModulesCard :filter="filterPopular" class="flex gap-6" #default="{ card }">
+        <Card :filter="filterPopular" class="flex gap-6" #default="{ card }">
             <div class="flex items-center gap-1">
                 <span class="text-xl font-bold">{{ card.price.toLocaleString('fa-IR') }}</span>
                 <span class="text-sm text-gray-400">تومان</span>
             </div>
-        </ModulesCard>
+        </Card>
     </div>
 </template>
 
