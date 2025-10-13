@@ -1,5 +1,5 @@
 <template>
-    <ul class="course-detail flex items-center gap-4">
+    <ul class="bg-gray-100 p-4 rounded-lg flex items-center gap-4">
         <li>
             <NuxtLink to="/">
                 <Icon class="text-2xl" name="solar:home-smile-outline" />

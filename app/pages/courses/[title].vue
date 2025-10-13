@@ -3,13 +3,13 @@
         <Breadcrumb />
         <CourseDescriptions />
         
-        <div class="w-full flex gap-6">
-            <div class="w-3/4 flex flex-col gap-4">
+        <div class="flex justify-between gap-6">
+            <div class="flex flex-col gap-4 w-full">
                 <CourseOverview />
                 <CourseContent />
             </div>
 
-            <div class="w-1/4">
+            <div>
                 <CourseShopping />
             </div>
         </div>

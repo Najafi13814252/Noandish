@@ -1,3 +1,3 @@
 <template>
-    <div class="course-detail h-full">content</div>
+    <div class="h-[1200px] mr-3">content</div>
 </template>

@@ -16,5 +16,5 @@
 }
 
 .course-detail {
-    @apply bg-gray-200 p-4 rounded-xl
+    @apply bg-gray-100 p-4 rounded-md
 }
