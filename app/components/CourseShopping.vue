@@ -16,12 +16,12 @@
             <!-- Buy & Save -->
             <div class="flex justify-between gap-2 px-2 pt-2 pb-4">
                 <button
-                    class="flex items-center gap-2 border border-sky-500 text-sky-500 bg-sky-50 py-2 px-12 rounded-md cursor-pointer hover:bg-sky-500 hover:text-white duration-200">
+                    class="flex items-center gap-2 bg-sky-500 text-white py-2 px-[3.3rem] rounded-md cursor-pointer hover:bg-sky-600 duration-200">
                     <Icon class="text-2xl" name="solar:cart-large-bold" />
                     <span class="font-medium text-lg">افزودن به سبد خرید</span>
                 </button>
                 <button
-                    class="flex items-center p-3 rounded-md border border-main-100 text-main-100 cursor-pointer duration-200">
+                    class="flex items-center p-3 rounded-md bg-sky-50 border border-sky-500 text-sky-500 cursor-pointer hover:bg-sky-100 duration-200">
                     <Icon class="text-xl" name="solar:bookmark-line-duotone" />
                 </button>
             </div>
