@@ -54,9 +54,9 @@
         </div>
     </footer>
 
-    <div class="fixed bottom-0 w-full flex md:hidden justify-between items-center py-2 px-4 z-20 bg-white shadow-lg border-t border-t-gray-200">
-        <button class="flex flex-col items-center gap-1 text-main-100 cursor-pointer" v-for="menu in mobileFooter" :key="menu.id">
-            <Icon class="text-lg" :name="menu.icon_name!" />
+    <div class="fixed bottom-0 w-full flex md:hidden justify-between items-center py-2 px-4 z-20 bg-white shadow-lg border-t border-t-gray-200 dark:bg-darkMode dark:border-t-gray-700">
+        <button class="flex flex-col items-center gap-1 text-main-100 cursor-pointer dark:text-white" v-for="menu in mobileFooter" :key="menu.id">
+            <Icon class="text-xl" :name="menu.icon_name!" />
             <span class="text-xs">{{ menu.title }}</span>
         </button>
     </div>

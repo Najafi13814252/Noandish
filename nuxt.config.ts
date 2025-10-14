@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxt/image', '@nuxt/icon', '@nuxt/fonts', 'nuxt-swiper'],
+  modules: ['@nuxt/image', '@nuxt/icon', '@nuxt/fonts', 'nuxt-swiper', '@nuxtjs/color-mode'],
   vite: {
     plugins: [
       tailwindcss(),
@@ -22,6 +22,11 @@ export default defineNuxtConfig({
         dir: 'rtl'
       },
     }
+  },
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light'
   },
   fonts: {
     families: [
@@ -48,8 +53,8 @@ export default defineNuxtConfig({
       {
         name: 'Lalezar',
         src: [
-          {path: '/fonts/Lalezar-Regular.woff2', format: 'woff2'},
-          {path: '/fonts/Lalezar-Regular.woff', format: 'woff'}
+          { path: '/fonts/Lalezar-Regular.woff2', format: 'woff2' },
+          { path: '/fonts/Lalezar-Regular.woff', format: 'woff' }
         ]
       }
     ],

@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex justify-between items-center border-b border-b-gray-300 px-10 py-1 bg-white z-30 font-dana font-medium sticky top-0">
+    <nav class="flex justify-between items-center border-b border-b-gray-300 md:px-10 px-2 py-1 bg-white z-30 font-dana font-medium sticky top-0 dark:bg-darkMode dark:border-gray-800">
         <div class="flex items-center gap-1 md:gap-10">
             <!-- Logo -->
             <NuxtLink to="/">
@@ -7,7 +7,7 @@
             </NuxtLink>
 
             <!-- Category -->
-            <button class="hidden md:flex items-center gap-1 text-main-100 text-lg">
+            <button class="hidden md:flex items-center gap-1 text-main-100 text-lg dark:text-main-200">
                 <Icon class="text-xl" name="solar:widget-2-outline" />
                 دسته‌بندی‌ها
             </button>
@@ -15,21 +15,29 @@
             <!-- Search Box -->
             <div class="hidden md:block relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 ">
-                    <Icon name="solar:magnifer-outline" />
+                    <Icon class="text-lg dark:text-main-200" name="solar:magnifer-outline" />
                 </div>
                 <input type="text" id="input-group-1"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-96 ps-10 p-2.5"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-96 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder:text-white"
                     placeholder="جستجو...">
             </div>
         </div>
         <div class="flex items-center gap-4">
             <!-- System Mode -->
-            <button class="p-2 text-main-100 border border-main-100 rounded-full flex cursor-pointer" aria-label="color_mode">
-                <Icon class="text-2xl" name="solar:sun-2-outline" />
+            <button class="p-2 text-main-100 border border-main-100 rounded-full flex cursor-pointer dark:text-main-200 dark:border-main-200" aria-label="color_mode" @click="toggleMode">
+                <Icon class="text-2xl" :name="colorMode.value === 'dark' ? 'solar:sun-2-outline' : 'solar:moon-outline'" />
             </button>
 
             <!-- Register -->
-            <button class="md:block px-4 py-2 text-main-100 rounded-lg border border-main-100 cursor-pointer" @click="$emit('openLogin')">ورود | ثبت‌نام</button>
+            <button class="md:block px-4 py-2 text-main-100 rounded-lg border border-main-100 cursor-pointer dark:text-main-200 dark:border-main-200" @click="$emit('openLogin')">ورود | ثبت‌نام</button>
         </div>
     </nav>
 </template>
+
+<script setup>
+const colorMode = useColorMode()
+
+const toggleMode = () => {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+}
+</script>

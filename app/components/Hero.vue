@@ -1,9 +1,9 @@
 <template>
     <div class="flex md:flex-row flex-col-reverse items-center justify-between px-2 md:px-6 rounded-lg font-dana">
         <main class="text-center md:text-right">
-            <p class="md:text-5xl text-4xl text-teal-700 leading-normal font-lalezar">آموزش‌های تخصصی همراه با توسعه فردی
+            <p class="md:text-5xl text-4xl text-teal-700 leading-normal font-lalezar dark:text-white">آموزش‌های تخصصی همراه با توسعه فردی
                 برای سازمان‌ها و شرکت‌ها <br> با <span class="text-main-200">بنیاد تعالی آموزش نو اندیش</span></p>
-            <p class="md:text-lg text-base font-medium max-w-lg text-gray-500 leading-relaxed my-8">بهترین و بروزترین
+            <p class="md:text-lg text-base font-medium max-w-lg text-gray-500 leading-relaxed my-8 dark:text-gray-200">بهترین و بروزترین
                 آموزش‌ها با بهترین و مجرب‌ترین اساتید ایران از مبتدی تا پیشرفته، کارمند تا فریلنسر همه باهم برای پیشرفت و
                 تعالی</p>
 

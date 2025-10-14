@@ -2,18 +2,20 @@
 
 @theme {
     /* Light mode */
-    --color-base_light: #ffffff;
+    --color-lightMode: #ffffff;
     --color-main-100: oklch(51.1% 0.096 186.391);
     --color-main-200: oklch(85.2% 0.199 91.936);
 
     /* Dark mode */
-    --color-base_dark: #111827;  
+    --color-darkMode: #111827;  
 }
 
 @theme {
     --font-dana: "dana", sans-serif;
     --font-lalezar: "Lalezar Regular", sans-serif;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 .course-detail {
     @apply bg-gray-100 p-4 rounded-md

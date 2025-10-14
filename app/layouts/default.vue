@@ -1,5 +1,5 @@
 <template>
-    <div class="font-dana">
+    <div class="font-dana dark:bg-darkMode">
         <Navbar @open-login="showLogin = true"/>
 
         <main>
@@ -7,7 +7,7 @@
         </main>
 
         <footer>
-            <div class="bg-main-100 py-10 my-10 md:my-0">
+            <div class="bg-main-100 py-10 my-10 md:my-0 dark:bg-gray-800">
                 <Newsletter />
                 <Footer />
             </div>

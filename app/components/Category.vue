@@ -1,17 +1,17 @@
 <template>
-    <section class="flex flex-col justify-center gap-10 text-gray-800 bg-teal-50 w-full py-10 rounded-xl px-2">
+    <section class="flex flex-col justify-center gap-10 text-gray-800 bg-teal-50 w-full py-10 rounded-xl px-2 dark:bg-teal-900">
         <div class="flex flex-col items-center gap-2">
-            <span class="font-lalezar text-main-100 text-3xl">دسته‌بندی‌های برتر</span>
-            <p class="text-lg text-gray-500 text-center">در چه زمینه‌ای میخواهید آموزش ببینید؟</p>
+            <span class="font-lalezar text-main-100 text-3xl dark:text-white">دسته‌بندی‌های برتر</span>
+            <p class="text-lg text-gray-500 text-center dark:text-gray-300">در چه زمینه‌ای میخواهید آموزش ببینید؟</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto gap-10">
-            <div class="flex items-center gap-4 bg-white border border-gray-300 rounded-lg p-2 group cursor-pointer hover:scale-110 hover:border-main-100 hover:shadow-lg duration-200" v-for="category in categories" :key="category.id">
-                <div class="bg-gray-100 flex items-center p-4 rounded-full group-hover:bg-main-100">
-                    <Icon class="text-3xl text-main-100 group-hover:text-white" :name="category.icon_name" />
+            <div class="flex items-center gap-4 bg-white border border-gray-300 rounded-lg p-2 group cursor-pointer hover:scale-110 hover:border-main-100 hover:shadow-lg duration-200 dark:bg-gray-800 dark:border-gray-600" v-for="category in categories" :key="category.id">
+                <div class="bg-gray-100 flex items-center p-4 rounded-full group-hover:bg-main-100 dark:bg-gray-700">
+                    <Icon class="text-3xl text-main-100 group-hover:text-white dark:text-white" :name="category.icon_name" />
                 </div>
                 <div class="flex flex-col gap-1">
-                    <span class="text-sm font-medium group-hover:text-main-100">{{ category.title }}</span>
+                    <span class="text-sm font-medium group-hover:text-main-100 dark:text-white dark:group-hover:text-white">{{ category.title }}</span>
                     <p class="text-gray-500 text-xs">{{ category.course_number.toLocaleString('fa-IR') }}+ دوره</p>
                 </div>
             </div>
