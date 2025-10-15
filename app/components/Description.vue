@@ -1,8 +1,11 @@
 <template>
-    <section class="flex flex-col gap-6 text-gray-800">
-        <div class="flex flex-col gap-4 border border-gray-200 bg-white px-4 py-6 rounded-lg">
+    <div class="flex flex-col gap-6 text-gray-800">
+        <div class="flex flex-col gap-4 border border-gray-200 bg-white px-4 py-6 rounded-lg dark:bg-darkMode dark:text-white dark:border-gray-800">
             <!-- descriptons -->
-            <span class="text-2xl font-bold rounded-md">توضیحات</span>
+            <div class="flex items-center gap-2">
+                <Icon class="text-4xl text-yellow-500" name="solar:file-text-line-duotone"/>
+                <span class="text-2xl font-bold">توضیحات</span>
+            </div>
             <div class="flex flex-col gap-4">
                 <p>طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید
                     داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
@@ -28,15 +31,15 @@
         </div>
 
         <!-- questions -->
-        <div class="flex flex-col gap-4 border border-gray-200 bg-white px-4 py-6 rounded-lg">
-            <span class="text-xl">سوالات متداول</span>
+        <div class="flex flex-col gap-4 border border-gray-200 bg-white px-4 py-6 rounded-lg dark:bg-darkMode dark:text-white dark:border-gray-800">
+            <span class="text-2xl font-bold rounded-md">سوالات متداول</span>
             <div class="grid grid-cols-3 gap-3">
                 <div v-for="question in questions" :key="question.id">
                     <span class="cursor-pointer">{{ question.title }}</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script setup>

@@ -1,6 +1,6 @@
 <template>
     <div class="text-gray-800 font-medium sticky top-24">
-        <div class="border border-gray-300 bg-white rounded-lg w-[22rem] shadow-md">
+        <div class="border border-gray-300 bg-white rounded-lg w-[22rem] shadow-md dark:bg-gray-800 dark:border-gray-700">
             <!-- price and description -->
             <div class="flex justify-between items-center gap-4 p-4">
                 <div class="flex items-center gap-2">
@@ -8,7 +8,7 @@
                     <span class="line-through text-sm text-gray-400 self-end">2,400,000</span>
                 </div>
                 <div class="flex items-center gap-1">
-                    <span class="text-2xl font-bold">1,200,000</span>
+                    <span class="text-2xl font-bold dark:text-white">1,200,000</span>
                     <span class="text-sm text-gray-400">تومان</span>
                 </div>
             </div>
@@ -21,20 +21,20 @@
                     <span class="font-medium text-lg">افزودن به سبد خرید</span>
                 </button>
                 <button
-                    class="flex items-center p-3 rounded-md bg-sky-50 border border-sky-500 text-sky-500 cursor-pointer hover:bg-sky-100 duration-200">
+                    class="flex items-center p-3 rounded-md bg-sky-50 border border-sky-500 text-sky-500 cursor-pointer hover:bg-sky-100 duration-200 dark:bg-gray-800 dark:hover:bg-gray-900">
                     <Icon class="text-xl" name="solar:bookmark-line-duotone" />
                 </button>
             </div>
 
             <!-- course features -->
-            <div class="p-2 border-t border-t-gray-300">
+            <div class="p-2 border-t border-t-gray-300 dark:border-gray-700">
                 <div class="flex flex-col gap-4 p-2">
                     <div class="flex items-center justify-between" v-for="item in features" :key="item.id">
                         <div class="flex items-center gap-2">
                             <Icon class="text-gray-500" :name="item.icon_name" />
-                            <span>{{ item.title_1 }}</span>
+                            <span class="dark:text-white">{{ item.title_1 }}</span>
                         </div>
-                        <span>{{ item.title_2 }}</span>
+                        <span class="dark:text-white">{{ item.title_2 }}</span>
                     </div>
                 </div>
             </div>

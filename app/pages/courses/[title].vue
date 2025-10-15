@@ -3,9 +3,8 @@
         <Breadcrumb />
         <CourseDescriptions />
         
-        <div class="flex justify-between gap-6">
+        <div class="flex flex-col md:flex-row justify-between gap-6">
             <div class="flex flex-col gap-4 w-full">
-                <CourseOverview />
                 <CourseContent />
             </div>
 

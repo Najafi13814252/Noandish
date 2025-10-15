@@ -1,5 +1,5 @@
 <template>
-    <section class="border border-gray-200 bg-white rounded-lg text-gray-800">
+    <div class="border border-gray-200 bg-white rounded-lg text-gray-800 dark:bg-darkMode dark:text-white dark:border-gray-800">
         <div>
             <!-- points -->
             <div class="p-4 rounded-md">
@@ -15,7 +15,7 @@
                         <div v-for="score in points" :key="score.id" class="flex items-center gap-2">
                             <div class="flex flex-col">
                                 <span class="mb-1 font-mediums">{{ score.rate }} ستاره</span>
-                                <div class="w-72 bg-gray-200 rounded-full h-1.5 mb-4">
+                                <div class="w-72 bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-800">
                                     <div :class="['h-1.5 rounded-full',
                                     score.id == 1 ? 'bg-green-700': '',
                                     score.id == 2 ? 'bg-green-500': '',
@@ -34,7 +34,7 @@
             <!-- comments -->
             <div></div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script setup>
