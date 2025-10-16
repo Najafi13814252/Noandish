@@ -10,16 +10,17 @@
                     class="flex flex-col relative shrink-0 gap-4 border bg-white w-full h-full border-teal-200 rounded-2xl shadow-md shadow-teal-200 p-3 my-4 cursor-pointer transform transition-transform duration-200 hover:scale-105 dark:bg-gray-800 dark:border-teal-700 dark:shadow-teal-700">
 
                     <!-- save courses -->
-                    <div
-                        class="absolute right-6 top-6 bg-white rounded-full flex items-center p-1 shadow opacity-85 hover:scale-110 duration-200">
-                        <Icon class="text-xl text-main-100" name="solar:bookmark-line-duotone" />
+                    <div class="absolute right-6 top-6 bg-white rounded-full flex items-center p-1 shadow opacity-85 hover:scale-110 duration-200"
+                        @click="saveCourse(card.id)">
+                        <Icon class="text-xl text-main-100"
+                        :name="save.includes(card.id) ? 'solar:bookmark-bold' : 'solar:bookmark-line-duotone'" />
                     </div>
 
                     <!-- image of course -->
                     <NuxtLink :to="`/courses/${card.title}`">
                         <NuxtImg :src="card.src" alt="Course" width="400" height="250" format="webp" quality="75"
-                        sizes="(max-width: 640px) 100vw, 400px"
-                        class="w-full h-40 object-cover rounded-lg border border-gray-200" loading="lazy" />
+                            sizes="(max-width: 640px) 100vw, 400px"
+                            class="w-full h-40 object-cover rounded-lg border border-gray-200" loading="lazy" />
                     </NuxtLink>
 
                     <div class="flex flex-col gap-7">
@@ -50,7 +51,7 @@
                         <div class="flex justify-between">
                             <!-- profile -->
                             <div class="flex items-center gap-1">
-                                <Icon class="text-lg text-main-100 dark:text-gray-400" name="solar:user-linear"/>
+                                <Icon class="text-lg text-main-100 dark:text-gray-400" name="solar:user-linear" />
                                 <span class="text-sm text-gray-400">{{ card.teacher }}</span>
                             </div>
 
@@ -79,12 +80,14 @@
         </ClientOnly>
 
         <div class="hidden md:flex items-center gap-2 absolute bottom-full left-32">
-            <button class="flex p-2 rounded-full border border-main-100 text-main-100 cursor-pointer dark:text-main-200 dark:border-main-200" aria-label="prev_btn"
-                @click="swiper.prev()">
+            <button
+                class="flex p-2 rounded-full border border-main-100 text-main-100 cursor-pointer dark:text-main-200 dark:border-main-200"
+                aria-label="prev_btn" @click="swiper.prev()">
                 <Icon class="text-xl" name="solar:alt-arrow-right-outline" />
             </button>
-            <button class="flex p-2 rounded-full border border-main-100 text-main-100 cursor-pointer dark:text-main-200 dark:border-main-200" aria-label="next_btn"
-                @click="swiper.next()">
+            <button
+                class="flex p-2 rounded-full border border-main-100 text-main-100 cursor-pointer dark:text-main-200 dark:border-main-200"
+                aria-label="next_btn" @click="swiper.next()">
                 <Icon class="text-xl" name="solar:alt-arrow-left-outline" />
             </button>
         </div>
@@ -97,6 +100,7 @@ import type { Card } from '@/utils/cards'
 
 const courses = ref<Card[]>(cards)
 const containerRef = ref(null)
+const save = ref<number[]>([])
 
 const swiper = useSwiper(containerRef)
 
@@ -109,4 +113,12 @@ const filteredCourses = computed<Card[]>(() => {
     if (!props.filter) return courses.value
     return courses.value.filter(props.filter)
 })
+
+const saveCourse = (courseID: number) => {
+    if (save.value.includes(courseID)) {
+        save.value = save.value.filter(id => id !== courseID)
+    } else {
+        save.value.push(courseID)
+    }
+}
 </script>
