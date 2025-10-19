@@ -1,6 +1,6 @@
 <template>
     <div class="text-gray-800 font-medium sticky top-24">
-        <div class="border border-gray-300 bg-white rounded-lg w-[22rem] shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class="border border-gray-300 bg-white rounded-lg w-full md:w-[22rem] shadow-md dark:bg-gray-800 dark:border-gray-700">
             <!-- price and description -->
             <div class="flex justify-between items-center gap-4 p-4">
                 <div class="flex items-center gap-2">

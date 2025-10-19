@@ -1,6 +1,6 @@
 <template>
     <div class="bg-gray-100 p-4 rounded-md sticky top-21 z-30 dark:bg-gray-800">
-        <ul class="flex items-center justify-beetween md:justify-evenly dark:text-white gap-4 md:gap-0">
+        <ul class="flex items-center justify-between md:justify-evenly dark:text-white">
             <li>
                 <button @click="scrollTo('description')"
                     :class="['cursor-pointer transition-all duration-300' ,active === 'description' ? 'bg-sky-200 text-sky-600 font-medium px-4 py-1 rounded-md dark:bg-sky-700 dark:text-white' : '']">

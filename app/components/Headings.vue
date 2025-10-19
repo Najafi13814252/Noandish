@@ -12,8 +12,8 @@
                 <!-- main title course -->
                 <div class="flex items-center justify-between cursor-pointer text-lg" @click="toggle(index)">
                     <div class="flex items-center gap-2">
-                        <span>فصل {{ index + 1 }}.</span>
-                        <span>{{ item.title }}</span>
+                        <span class="whitespace-nowrap">فصل {{ index + 1 }}.</span>
+                        <span class="truncate w-60 md:w-full">{{ item.title }}</span>
                     </div>
                     <Icon class="text-xl" v-if="openIndex === index" name="solar:alt-arrow-up-outline" />
                     <Icon class="text-xl" v-else name="solar:alt-arrow-down-outline" />
@@ -26,9 +26,9 @@
                         <div class="flex items-center gap-2">
                             <div class="flex items-center gap-2">
                                 <Icon class="relative bottom-0.5" name="solar:play-outline" />
-                                <span>جلسه {{ index + 1 }}.</span>
+                                <span class="whitespace-nowrap">جلسه {{ index + 1 }}.</span>
                             </div>
-                            <div>{{ option.title }}</div>
+                            <div class="truncate w-32 md:w-full">{{ option.title }}</div>
                         </div>
                         <div class="flex items-center bg-green-100 p-2 rounded-full dark:bg-gray-600"
                             v-if="option.type === 'public'">

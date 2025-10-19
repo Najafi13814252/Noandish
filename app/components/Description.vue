@@ -33,7 +33,7 @@
         <!-- questions -->
         <div class="flex flex-col gap-4 border border-gray-200 bg-white px-4 py-6 rounded-lg dark:bg-darkMode dark:text-white dark:border-gray-800">
             <span class="text-2xl font-bold rounded-md">سوالات متداول</span>
-            <div class="grid grid-cols-3 gap-3">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12 md: gap-3">
                 <div v-for="question in questions" :key="question.id">
                     <span class="cursor-pointer">{{ question.title }}</span>
                 </div>
