@@ -3,7 +3,7 @@
         <div>
             <!-- points -->
             <div class="p-4 rounded-md">
-                <div class="flex items-center justify-around">
+                <div class="flex flex-col md:flex-row items-center justify-around">
                     <div class="flex flex-col text-center">
                         <span class="text-5xl font-bold">4.3</span>
                         <span>از 5 امتیاز</span>
@@ -11,7 +11,7 @@
                             <Icon class="text-yellow-500" v-for="i in 5" name="solar:star-outline" />
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 border-r pr-10 border-r-gray-300">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pr-0 md:pr-10 md:border-r md:border-r-gray-300">
                         <div v-for="score in points" :key="score.id" class="flex items-center gap-2">
                             <div class="flex flex-col">
                                 <span class="mb-1 font-mediums">{{ score.rate }} ستاره</span>

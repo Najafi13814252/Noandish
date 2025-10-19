@@ -1,11 +1,11 @@
 <template>
     <div class="border border-gray-200 bg-white p-4 rounded-lg text-gray-800 dark:bg-darkMode dark:text-white dark:border-gray-800">
-        <div class="flex gap-10">
+        <div class="flex flex-col md:flex-row items-center gap-10">
             <img class="w-48 h-48 rounded-full object-cover" src="/images/person.webp" alt="teacher_profile">
-            <div class="flex flex-col gap-4">
-                <span class="text-2xl text-main-100 font-bold dark:text-white">امیر رحمانی</span>
-                <div class="flex items-center gap-6">
-                    <div class="flex items-center gap-2" v-for="item in detail" :key="item.id">
+            <div class="flex flex-col gap-8 md:gap-4">
+                <span class="text-2xl text-main-100 font-bold dark:text-white text-center md:text-right">امیر رحمانی</span>
+                <div class="flex items-center gap-6 justify-center md:justify-stretch">
+                    <div class="flex flex-col md:flex-row items-center gap-2" v-for="item in detail" :key="item.id">
                         <Icon :name="item.icon_name" />
                         <span>{{ item.title }}</span>
                     </div>

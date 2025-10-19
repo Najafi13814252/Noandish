@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-32 flex flex-col gap-6 my-10">
+    <div class="px-2 md:px-0 mx-0 md:mx-32 flex flex-col gap-6 my-10 w-full md:w-fit">
         <Breadcrumb />
         <CourseDescriptions />
         

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-beetween gap-20">
+    <div class="flex flex-col-reverse md:flex-row justify-beetween gap-10 md:gap-20">
         <div class="flex flex-col gap-8">
             <h2 class="text-4xl font-bold dark:text-white">{{ title }}</h2>
 
@@ -12,7 +12,7 @@
                 دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
             </p>
             
-            <div class="flex items-center gap-9">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-9">
                 <div class="flex gap-2">
                     <Icon class="text-2xl text-yellow-500" name="solar:star-bold"/>
                     <span class="text-2xl dark:text-white"><span class="text-lg text-gray-500 dark:text-gray-300">5 /</span> 4.8</span>
