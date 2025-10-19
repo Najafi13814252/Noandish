@@ -1,5 +1,6 @@
 <template>
-    <nav class="flex justify-between items-center border-b border-b-gray-300 md:px-10 px-2 py-1 bg-white z-40 font-dana font-medium sticky top-0 dark:bg-darkMode dark:border-gray-800">
+    <nav
+        class="flex justify-between items-center border-b border-b-gray-300 md:px-10 px-2 py-1 bg-white z-40 font-dana font-medium sticky top-0 dark:bg-darkMode dark:border-gray-800">
         <div class="flex items-center gap-1 md:gap-10">
             <!-- Logo -->
             <NuxtLink to="/">
@@ -24,20 +25,35 @@
         </div>
         <div class="flex items-center gap-4">
             <!-- System Mode -->
-            <button class="p-2 text-main-100 border border-main-100 rounded-full flex cursor-pointer dark:text-main-200 dark:border-main-200" aria-label="color_mode" @click="toggleMode">
+            <button
+                class="p-2 text-main-100 border border-main-100 rounded-full flex cursor-pointer dark:text-main-200 dark:border-main-200"
+                aria-label="color_mode" @click="toggleMode">
                 <Icon class="text-2xl" :name="colorMode.value === 'dark' ? 'solar:sun-2-outline' : 'solar:moon-outline'" />
             </button>
 
             <!-- Register -->
-            <button class="md:block px-4 py-2 text-main-100 rounded-lg border border-main-100 cursor-pointer dark:text-main-200 dark:border-main-200" @click="$emit('openLogin')">ورود | ثبت‌نام</button>
+            <button v-if="!userStore.isLoggedIn"
+                class="md:block px-4 py-2 text-main-100 rounded-lg border border-main-100 cursor-pointer dark:text-main-200 dark:border-main-200"
+                @click="$emit('openLogin')">ورود | ثبت‌نام</button>
+            <button v-else class="flex items-center gap-2 border border-main-100 text-main-100 px-4 py-2 rounded-lg cursor-pointer dark:text-main-200 dark:border-main-200" @click="logout">
+                <Icon class="text-2xl" name="solar:user-outline" />
+                <span class="font-medium">پنل دانشجو</span>
+            </button>
         </div>
     </nav>
 </template>
 
 <script setup>
+import { useUserStore } from '~/../stores/user'
+
 const colorMode = useColorMode()
+const userStore = useUserStore()
 
 const toggleMode = () => {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+}
+
+const logout = async () => {
+    useUserStore.logout()
 }
 </script>

@@ -12,11 +12,11 @@
                             <p class="text-gray-500 text-lg dark:text-gray-300">{{ descriptionForm }}</p>
                         </div>
                     </div>
-                    <form class="flex flex-col items-center mx-auto gap-6 w-fit">
+                    <form class="flex flex-col items-center mx-auto gap-6 w-fit" @submit.prevent="register">
                         <input class="w-96 p-2 bg-white rounded border border-teal-500 dark:bg-gray-600 dark:placeholder:text-gray-200 dark:border-teal-700" type="text"
-                            placeholder="نام کاربری را وارد کنید">
+                            placeholder="نام کاربری را وارد کنید" v-model="username">
                         <input class="w-96 p-2 bg-white rounded border border-teal-500 dark:bg-gray-600 dark:placeholder:text-gray-200 dark:border-teal-700" type="password"
-                            placeholder="رمز عبور را وارد کنید" v-show="showConfrimInput">
+                            placeholder="رمز عبور را وارد کنید" v-show="showConfrimInput" v-model="password">
                         <input class="w-96 p-2 bg-white rounded border border-teal-500 dark:bg-gray-600 dark:placeholder:text-gray-200 dark:border-teal-700" type="password"
                             placeholder="رمز عبور را دوباره وارد کنید">
                         <button
@@ -36,6 +36,7 @@
 </template>
 
 <script setup>
+import { useUserStore } from '~/../stores/user'
 
 const titleForm = ref('ورود')
 const descriptionForm = ref('به صفحه ورود نواندیش خوش‌ برگشتید')
@@ -43,6 +44,10 @@ const btnTitleForm = ref('ورود')
 const showLoginLink = ref(false)
 const showSignupLink = ref(true)
 const showConfrimInput = ref(false)
+const username = ref('')
+const password = ref('')
+
+const userStore = useUserStore()
 
 const signup = () => {
     titleForm.value = 'ثبت‌نام'
@@ -60,5 +65,10 @@ const login = () => {
     showLoginLink.value = false
     showSignupLink.value = true
     showConfrimInput.value = false
+}
+
+const register = async () => {
+    userStore.login(username.value, password.value)
+    navigateTo('/')
 }
 </script>
