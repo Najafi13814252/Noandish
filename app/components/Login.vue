@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <section class="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-xs font-dana">
-            <div class="relative border-2 border-teal-100 bg-white md:rounded-2xl shadow-lg flex justify-center w-full md:w-[30rem] h-full md:h-[35rem] dark:bg-gray-800">
+            <div class="relative border-2 border-teal-100 bg-white md:rounded-2xl shadow-lg flex justify-center w-full md:w-[30rem] h-full md:h-[35rem] dark:bg-gray-800 dark:border-gray-700">
                 <Icon class="text-3xl absolute right-2 top-2 text-gray-800 cursor-pointer dark:text-white" name="solar:close-circle-outline" @click="$emit('closeLogin')"/>
                 <!-- forms -->
                 <div class="rounded-2xl text-center">
@@ -13,14 +13,14 @@
                         </div>
                     </div>
                     <form class="flex flex-col items-center mx-auto gap-6 w-fit" @submit.prevent="register">
-                        <input class="w-96 p-2 bg-white rounded border border-teal-500 dark:bg-gray-600 dark:placeholder:text-gray-200 dark:border-teal-700" type="text"
+                        <input class="w-96 px-2 py-3 bg-gray-50 rounded-xl border border-gray-300 dark:bg-gray-700 placeholder:text-sm dark:placeholder:text-gray-400 dark:border-gray-700 dark:text-white" type="text"
                             placeholder="نام کاربری را وارد کنید" v-model="username">
-                        <input class="w-96 p-2 bg-white rounded border border-teal-500 dark:bg-gray-600 dark:placeholder:text-gray-200 dark:border-teal-700" type="password"
-                            placeholder="رمز عبور را وارد کنید" v-show="showConfrimInput" v-model="password">
-                        <input class="w-96 p-2 bg-white rounded border border-teal-500 dark:bg-gray-600 dark:placeholder:text-gray-200 dark:border-teal-700" type="password"
-                            placeholder="رمز عبور را دوباره وارد کنید">
+                        <input class="w-96 px-2 py-3 bg-gray-50 rounded-xl border border-gray-300 dark:bg-gray-700 placeholder:text-sm dark:placeholder:text-gray-400 dark:border-gray-700 dark:text-white" type="password"
+                            placeholder="رمز عبور را وارد کنید" v-model="password">
+                        <input class="w-96 px-2 py-3 bg-gray-50 rounded-xl border border-gray-300 dark:bg-gray-700 placeholder:text-sm dark:placeholder:text-gray-400 dark:border-gray-700 dark:text-white" type="password"
+                            placeholder="رمز عبور را دوباره وارد کنید" v-show="showConfrimInput">
                         <button
-                            class="bg-teal-500 text-white text-xl w-full rounded py-3 cursor-pointer hover:bg-teal-600 duration-200"
+                            class="bg-teal-500 text-white text-xl w-full rounded-xl py-3 cursor-pointer hover:bg-teal-600 duration-200"
                             type="submit">{{ btnTitleForm }}</button>
                     </form>
                     <div class="mt-4">

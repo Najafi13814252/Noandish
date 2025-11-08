@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-col justify-center gap-10 text-gray-800 bg-teal-50 w-full py-10 rounded-xl px-2 dark:bg-teal-900">
+    <section class="flex flex-col justify-center gap-10 text-gray-800 bg-teal-50 w-full py-10 rounded-xl px-2 dark:bg-transparent">
         <div class="flex flex-col items-center gap-2">
             <span class="font-lalezar text-main-100 text-3xl dark:text-white">دسته‌بندی‌های برتر</span>
             <p class="text-lg text-gray-500 text-center dark:text-gray-300">در چه زمینه‌ای میخواهید آموزش ببینید؟</p>

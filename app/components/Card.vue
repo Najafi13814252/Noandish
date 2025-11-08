@@ -7,7 +7,7 @@
                     640: { slidesPerView: 4.6 }    // از 640px به بالا
                 }">
                 <swiper-slide v-for="card in filteredCourses" :key="card.id"
-                    class="flex flex-col relative shrink-0 gap-4 border bg-white w-full h-full border-teal-200 rounded-2xl shadow-md shadow-teal-200 p-3 my-4 cursor-pointer transform transition-transform duration-200 hover:scale-105 dark:bg-gray-800 dark:border-teal-700 dark:shadow-teal-700">
+                    class="flex flex-col relative shrink-0 gap-4 border bg-white w-full h-full border-teal-200 rounded-2xl shadow-md shadow-teal-200 p-3 my-4 cursor-pointer transform transition-transform duration-200 hover:scale-105 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-800">
 
                     <!-- save courses -->
                     <div class="absolute right-6 top-6 bg-white rounded-full flex items-center p-1 shadow opacity-85 hover:scale-110 duration-200"

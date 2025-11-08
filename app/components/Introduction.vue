@@ -1,10 +1,10 @@
 <template>
-    <section class="flex flex-col justify-center items-center gap-12 bg-gray-50 py-10 rounded-2xl px-2 dark:bg-teal-900">
+    <section class="flex flex-col justify-center items-center gap-12 bg-gray-50 py-10 rounded-2xl px-2 dark:bg-gray-800">
         <span class="font-lalezar text-main-100 text-3xl dark:text-white">چرا نواندیش؟</span>
 
         <div class="flex flex-wrap items-center justify-center gap-12 md:gap-28">
             <div class="flex flex-col items-center text-center gap-4" v-for="intro in introduction" :key="intro.id">
-                <div class="flex items-center border border-main-100 p-4 rounded-3xl dark:border-main-200">
+                <div class="flex items-center border border-main-100 p-4 rounded-3xl dark:border-main-200 bg-main-200/10">
                     <Icon class="text-4xl text-main-100 dark:text-gray-200" :name="intro.icon_name" />
                 </div>
                 <p class="w-40 h-20 text-gray-800 dark:text-white">{{ intro.title }}</p>

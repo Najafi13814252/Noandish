@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="flex justify-between items-center border-b border-b-gray-300 md:px-10 px-2 py-1 bg-white z-40 font-dana font-medium sticky top-0 dark:bg-darkMode dark:border-gray-800">
+        class="flex justify-between items-center border-b border-b-gray-300/20 md:px-10 px-2 py-1 bg-white/50 backdrop-blur-lg z-40 font-dana font-medium sticky top-0 dark:bg-darkMode/50 dark:border-gray-800/50">
         <div class="flex items-center gap-1 md:gap-10">
             <!-- Logo -->
             <NuxtLink to="/">
@@ -19,7 +19,7 @@
                     <Icon class="text-lg dark:text-main-200" name="solar:magnifer-outline" />
                 </div>
                 <input type="text" id="input-group-1"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-96 ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-500 dark:placeholder:text-white"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full md:w-[30rem] ps-10 p-3 dark:bg-transparent dark:border-gray-700 dark:placeholder:text-white dark:text-white"
                     placeholder="جستجو...">
             </div>
         </div>
