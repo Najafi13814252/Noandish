@@ -3,7 +3,7 @@
 
     <div class="flex flex-col gap-20 my-32">
         <LazyPopularCourses />
-        <LazyCategory />
+        <LazyBestCategory />
         <LazyDiscountCourses />
         <LazyFreeCourses />
         <LazyIntroduction />

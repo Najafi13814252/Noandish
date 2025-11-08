@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col">
-        <SectionHeader title="محبوب" icon-name="solar:heart-bold" icon-color="text-red-400" />
+        <SectionHeader title="محبوب" icon-name="solar:heart-bold" icon-color="text-red-500" />
 
         <Card :filter="filterPopular" class="flex gap-6" #default="{ card }">
             <div class="flex items-center gap-1">

@@ -8,10 +8,13 @@
             </NuxtLink>
 
             <!-- Category -->
-            <button class="hidden md:flex items-center gap-1 text-main-100 text-lg dark:text-main-200">
-                <Icon class="text-xl" name="solar:widget-2-outline" />
-                دسته‌بندی‌ها
-            </button>
+            <div class="relative">
+                <button class="hidden md:flex items-center gap-1 text-main-100 text-lg dark:text-main-200 cursor-pointer" @click="showCategories =! showCategories">
+                    <Icon class="text-xl" name="solar:widget-2-outline" />
+                    دسته‌بندی‌ها
+                </button>
+                <Categories class="absolute top-0 right-0" v-show="showCategories"/>
+            </div>
 
             <!-- Search Box -->
             <div class="hidden md:block relative">
@@ -35,7 +38,9 @@
             <button v-if="!userStore.isLoggedIn"
                 class="md:block px-4 py-2 text-main-100 rounded-lg border border-main-100 cursor-pointer dark:text-main-200 dark:border-main-200"
                 @click="$emit('openLogin')">ورود | ثبت‌نام</button>
-            <button v-else class="flex items-center gap-2 border border-main-100 text-main-100 px-4 py-2 rounded-lg cursor-pointer dark:text-main-200 dark:border-main-200" @click="logout">
+            <button v-else
+                class="flex items-center gap-2 border border-main-100 text-main-100 px-4 py-2 rounded-lg cursor-pointer dark:text-main-200 dark:border-main-200"
+                @click="logout">
                 <Icon class="text-2xl" name="solar:user-outline" />
                 <span class="font-medium">پنل دانشجو</span>
             </button>
@@ -48,6 +53,8 @@ import { useUserStore } from '~/../stores/user'
 
 const colorMode = useColorMode()
 const userStore = useUserStore()
+
+const showCategories = ref(false)
 
 const toggleMode = () => {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
