@@ -52,7 +52,6 @@ const myCourses = ref<MyCourse[]>([
     { id: 4, image: '/images/img-5.webp', title: 'تفکر استراتژیک', teacherName: 'سارا رضایی', progress: 40 },
     { id: 5, image: '/images/img-2.webp', title: 'تفکر استراتژیک', teacherName: 'سارا رضایی', progress: 40 },
     { id: 6, image: '/images/img-3.webp', title: 'تفکر استراتژیک', teacherName: 'سارا رضایی', progress: 40 },
-    { id: 7, image: '/images/img-1.webp', title: 'تفکر استراتژیک', teacherName: 'سارا رضایی', progress: 40 },
-    { id: 8, image: '/images/img-6.webp', title: 'تفکر استراتژیک', teacherName: 'سارا رضایی', progress: 40 }
+    { id: 7, image: '/images/img-1.webp', title: 'تفکر استراتژیک', teacherName: 'سارا رضایی', progress: 40 }
 ])
 </script>

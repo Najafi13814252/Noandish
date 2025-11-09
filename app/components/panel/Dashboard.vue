@@ -2,7 +2,7 @@
     <aside class="border border-gray-300 rounded-2xl w-72 h-full p-4 bg-white dark:bg-darkMode dark:border-gray-700">
         <div>
             <!-- profile -->
-            <div class="flex flex-col items-center gap-4 border-b border-b-gray-200 pb-4">
+            <div class="flex flex-col items-center gap-4 border-b border-b-gray-200 pb-4 dark:border-b-gray-800">
                 <img class="w-32 h-32 rounded-full object-cover" src="/images/person.webp" alt="teacher_profile">
                 <div class="flex flex-col items-center gap-2 dark:text-white">
                     <span>امیرحسین نجفی</span>
@@ -34,7 +34,7 @@ const panel = ref<PanelMenu[]>([
     { id: 1, title: 'دوره‌های من', icon: 'solar:book-2-outline', route: '/panel/my-courses' },
     { id: 2, title: 'علاقه‌مندی‌ها', icon: 'solar:bookmark-linear', route: '/panel/favorites' },
     { id: 3, title: 'سوال‌های من', icon: 'solar:dialog-outline', route: '/panel/questions' },
-    { id: 4, title: 'لیست تراکنش‌ها', icon: 'solar:bill-list-outline', route: '/panel/transactions' },
+    { id: 4, title: 'لیست تراکنش‌ها', icon: 'solar:wallet-money-outline', route: '/panel/transactions' },
     { id: 5, title: 'تنظیمات پروفایل', icon: 'solar:user-rounded-outline', route: '/panel/profile-settings' },
     { id: 6, title: 'خروج', icon: 'solar:logout-outline', route: '/panel/exit' }
 ])
