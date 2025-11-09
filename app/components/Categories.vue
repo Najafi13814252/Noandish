@@ -17,7 +17,7 @@
         <!-- sub menu -->
         <div class="flex flex-col gap-8 p-4 absolute rounded-b-lg left-0 top-0 w-1/2" v-for="items in menuList" :key="items.id">
             <div class="flex flex-col gap-7" v-if="isSelected === items.id">
-                <div class="flex items-center justify-between text-teal-500">
+                <div class="flex items-center justify-between text-teal-500 cursor-pointer">
                     <span class="text-sm">همه آموزش‌های {{ items.title }}</span>
                     <Icon name="solar:arrow-left-broken" />
                 </div>

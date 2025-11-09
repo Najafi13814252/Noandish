@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="flex justify-between items-center border-b border-b-gray-300/20 md:px-10 px-2 py-1 bg-white/50 backdrop-blur-lg z-40 font-dana font-medium sticky top-0 dark:bg-darkMode/50 dark:border-gray-800/50">
+        class="flex justify-between items-center border-b border-b-gray-300 md:px-10 px-2 py-1 bg-white z-40 font-dana font-medium sticky top-0 dark:bg-darkMode dark:border-gray-800">
         <div class="flex items-center gap-1 md:gap-10">
             <!-- Logo -->
             <NuxtLink to="/">
@@ -9,11 +9,12 @@
 
             <!-- Category -->
             <div class="relative">
-                <button class="hidden md:flex items-center gap-1 text-main-100 text-lg dark:text-main-200 cursor-pointer" @click="showCategories =! showCategories">
+                <button class="hidden md:flex items-center gap-1 text-main-100 text-lg dark:text-main-200 cursor-pointer"
+                    @click="showCategories = !showCategories">
                     <Icon class="text-xl" name="solar:widget-2-outline" />
                     دسته‌بندی‌ها
                 </button>
-                <Categories class="absolute top-0 right-0" v-show="showCategories"/>
+                <Categories class="absolute top-0 right-0" v-show="showCategories" />
             </div>
 
             <!-- Search Box -->
@@ -38,12 +39,13 @@
             <button v-if="!userStore.isLoggedIn"
                 class="md:block px-4 py-2 text-main-100 rounded-lg border border-main-100 cursor-pointer dark:text-main-200 dark:border-main-200"
                 @click="$emit('openLogin')">ورود | ثبت‌نام</button>
-            <button v-else
-                class="flex items-center gap-2 border border-main-100 text-main-100 px-4 py-2 rounded-lg cursor-pointer dark:text-main-200 dark:border-main-200"
-                @click="logout">
-                <Icon class="text-2xl" name="solar:user-outline" />
-                <span class="font-medium">پنل دانشجو</span>
-            </button>
+            <NuxtLink v-else to="/panel/my-courses">
+                <button
+                    class="flex items-center gap-2 border border-main-100 text-main-100 px-4 py-2 rounded-lg cursor-pointer dark:text-main-200 dark:border-main-200">
+                    <Icon class="text-2xl" name="solar:user-outline" />
+                    <span class="font-medium">پنل دانشجو</span>
+                </button>
+            </NuxtLink>
         </div>
     </nav>
 </template>
