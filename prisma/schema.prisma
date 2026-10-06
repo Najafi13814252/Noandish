@@ -1,0 +1,150 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  phone     Int?
+  avatar    String?
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+
+  teacher Teacher?
+
+  reviews  Review[]
+  payments Payment[]
+}
+
+model Teacher {
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  bio       String? @db.Text
+  expertise String?
+
+  Course Course[]
+}
+
+model Course {
+  id              String    @id @default(uuid())
+  imageUrl        String?
+  title           String
+  price           Int
+  discount        Int?      @default(0)
+  level           String
+  description     String?   @db.Text
+  fullDescription String?   @db.Text
+  createdAt       DateTime  @default(now())
+
+  teacherId       String
+  teacher         Teacher   @relation(fields: [teacherId], references: [userId])
+  
+  categoryId      String
+  category        Category @relation(fields: [categoryId], references: [id])
+
+  prerequisites Prerequisite[]
+  reviews       Review[]
+  payments      Payment[]
+  chapters      Chapter[]
+
+  @@index([teacherId])
+}
+
+model Prerequisite {
+  id      String   @id @default(uuid())
+  name    String   @db.Text
+  courses Course[]
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  courseId  String
+  name      String
+  createdAt DateTime @default(now())
+  courses   Course[]
+}
+
+model Chapter {
+  id       String   @id @default(uuid())
+  title    String
+  courseId String
+  position Int
+  course   Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons  Lesson[]
+
+  @@index([courseId])
+}
+
+model Lesson {
+  id        String  @id @default(uuid())
+  title     String
+  videoUrl  String? @db.Text
+  posterUrl String? @db.Text
+  duration  Float?
+  isLock    Boolean @default(false)
+  position  Int
+  chapterId String
+  chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([chapterId])
+}
+
+model Review {
+  id      String  @id @default(uuid())
+  rating  Float   @default(0)
+  comment String? @db.Text
+
+  userId   String @db.VarChar(100)
+  courseId String @db.VarChar(100)
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, courseId])
+}
+
+model Payment {
+  id String @id @default(uuid())
+
+  userId   String @db.VarChar(100)
+  courseId String @db.VarChar(100)
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  amount    Int
+  orderId   String?
+  authority String?
+  refId     String?
+  status    PaymentStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, courseId])
+  @@index([userId])
+  @@index([courseId])
+  @@index([orderId])
+  @@index([authority])
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum Role {
+  USER
+  TEACHER
+}

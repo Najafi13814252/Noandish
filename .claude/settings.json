@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const m=require\\('c:/Users/RazR/Desktop/Noandish-LV2/noandish-app/node_modules/@hugeicons/core-free-icons'\\); console.log\\(Object.keys\\(m\\).filter\\(k=>/ArrowUp|ArrowDown|Copyright/.test\\(k\\)\\).join\\(', '\\)\\)\")",
+      "Bash(npx tsc *)"
+    ]
+  }
+}
