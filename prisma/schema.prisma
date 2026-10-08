@@ -34,21 +34,24 @@ model Teacher {
 }
 
 model Course {
-  id              String    @id @default(uuid())
+  id              String   @id @default(uuid())
   imageUrl        String?
   title           String
-  price           Int
-  discount        Int?      @default(0)
-  level           String
-  description     String?   @db.Text
-  fullDescription String?   @db.Text
-  createdAt       DateTime  @default(now())
+  price           Int?
+  discount        Int?     @default(0)
+  description     String?  @db.Text
+  fullDescription String?  @db.Text
+  isPublished     Boolean? @default(false)
+  createdAt       DateTime @default(now())
 
-  teacherId       String
-  teacher         Teacher   @relation(fields: [teacherId], references: [userId])
-  
-  categoryId      String
-  category        Category @relation(fields: [categoryId], references: [id])
+  teacherId String
+  teacher   Teacher @relation(fields: [teacherId], references: [userId])
+
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id])
+
+  levelId String?
+  level   Level?  @relation(fields: [levelId], references: [id])
 
   prerequisites Prerequisite[]
   reviews       Review[]
@@ -64,10 +67,17 @@ model Prerequisite {
   courses Course[]
 }
 
+model Level {
+  id      String   @id @default(uuid())
+  name    String
+  slug    String
+  courses Course[]
+}
+
 model Category {
   id        String   @id @default(uuid())
-  courseId  String
-  name      String
+  name      String   @unique
+  slug      String
   createdAt DateTime @default(now())
   courses   Course[]
 }

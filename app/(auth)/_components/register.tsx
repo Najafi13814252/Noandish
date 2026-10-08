@@ -35,7 +35,7 @@ function Register({ children, title, footer, description, href }: RegisterProps)
                     className="rounded-full"
                 />
                 <div className="flex flex-col gap-2 mb-4">
-                    <h2 className="text-primary text-4xl font-heading">
+                    <h2 className="text-primary text-3xl font-heading">
                         {title}
                     </h2>
                     <p className="text-gray-500 text-lg dark:text-gray-300">

@@ -59,10 +59,10 @@ function TeacherDashboard() {
 
                     <Separator />
 
-                    <div className="flex items-center gap-x-2 rounded-lg hover:text-red-500 duration-100 cursor-pointer">
+                    <Link href="/" className="flex items-center gap-x-2 rounded-lg hover:text-red-500 duration-100 cursor-pointer">
                         <HugeiconsIcon icon={Logout} className="size-5" />
                         خروج از پنل
-                    </div>
+                    </Link>
                 </CardContent>
             </Card>
         </aside>

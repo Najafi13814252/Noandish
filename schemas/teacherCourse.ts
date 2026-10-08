@@ -1,25 +1,40 @@
-import z from "zod";
+import { z } from "zod";
 
-export const upsertCourseSchema = z.object({
+export const basicCourseInfoSchema = z.object({
     title: z
         .string()
-        .min(2, "عنوان باید حداقل 2 کاراکتر باشد")
-        .max(50, "عنوان باید حداکثر 50 کاراکتر باشد"),
+        .trim()
+        .min(1, "عنوان دوره الزامی است")
+        .min(3, "عنوان دوره باید حداقل ۳ کاراکتر باشد"),
 
     category: z
         .string()
-        .min(1, "انتخاب دسته‌بندی الزامی است"),
+        .min(1, "دسته‌بندی دوره را انتخاب کنید"),
 
     level: z
         .string()
-        .min(1, "انتخاب سطح دوره الزامی است"),
+        .min(1, "سطح دوره را انتخاب کنید"),
 
     price: z
-        .number()
-        .int()
-        .min(0, "قیمت نمی‌تواند منفی باشد"),
+        .string()
+        .min(1, "قیمت دوره الزامی است")
+        .regex(/^\d+$/, "قیمت باید فقط شامل عدد باشد"),
 
     discount: z
-        .number()
+        .string()
+        .regex(/^\d+$/, "تخفیف باید فقط شامل عدد باشد")
         .optional()
+        .or(z.literal("")),
+});
+
+export const courseTitleSchema = z.object({
+    title: z
+        .string()
+        .trim()
+        .min(1, "عنوان دوره الزامی است")
+        .min(3, "عنوان دوره باید حداقل ۳ کاراکتر باشد")
 })
+
+
+export type CourseTitleSchema = z.infer<typeof courseTitleSchema>;
+export type BasicCourseInfoForm = z.infer<typeof basicCourseInfoSchema>;
