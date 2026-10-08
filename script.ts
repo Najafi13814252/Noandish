@@ -4,22 +4,27 @@ import { prisma } from "./lib/prisma";
 
 
 async function main() {
-    // await prisma.user.create({
-    //     data: {
-    //         name: 'علی رضایی',
-    //         email: 'alir1234@gmail.com',
-    //         password: 'alir1234',
-    //         role: "TEACHER"
-    //     }
-    // });
-    // console.log("Created User");
-
-    await prisma.teacher.create({
-        data: {
-            userId: '5429c1c3-784e-4d37-8f9a-9de69ac2ec2f'
-        }
-    });
-    console.log("Created Teacher");
+    await prisma.level.createMany({
+        data: [
+            {
+                name: 'مقدماتی',
+                slug: 'Introductory'
+            },
+            {
+                name: 'متوسط',
+                slug: 'Itermediate'
+            },
+            {
+                name: 'پیشرفته',
+                slug: 'Advanced'
+            },
+            {
+                name: 'مقدماتی تا پیشرفته',
+                slug: 'IntroductoryToAdvanced'
+            }
+        ]
+    })
+    console.log('Levels created');
 }
 
 main()

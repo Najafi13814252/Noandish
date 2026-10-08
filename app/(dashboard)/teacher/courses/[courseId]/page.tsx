@@ -1,23 +1,20 @@
-import { getCourse } from '@/data/courses';
+import { getCourse, getCourseFormOptions } from '@/data/courses';
 import BasicCourseInfo from './_components/basic-course-info';
+import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
-async function CourseCreatePage({
-  params,
-}: {
-  params: Promise<{ courseId: string }>;
-}) {
-  const { courseId } = await params;
+type Params = Promise<{ courseId: string }>;
 
-  const course = await getCourse(courseId)
+function CourseCreatePage({params}: {params: Params}) {
 
   return (
     <div
-      className='grid grid-cols-1 gap-6 lg:grid-cols-3'
-      data-course-id={courseId}
-    >
+      className='grid grid-cols-1 gap-6 lg:grid-cols-3'>
       {/* فرم‌های تکمیل دوره (2/3 صفحه) */}
       <div className='lg:col-span-2'>
-        <BasicCourseInfo initialData={course ?? undefined} courseId={courseId} />
+        <Suspense fallback={null}>
+          <CourseInfoHandle params={params} />
+        </Suspense>
       </div>
 
       {/* پیش‌نمایش دوره (1/3 صفحه) - در پرامپت‌های بعدی تکمیل می‌شود */}
@@ -27,3 +24,23 @@ async function CourseCreatePage({
 }
 
 export default CourseCreatePage;
+
+async function CourseInfoHandle({ params }: { params: Params }) {
+
+  const { courseId } = await params;
+
+  const [course, options] = await Promise.all([
+    getCourse(courseId),
+    getCourseFormOptions(),
+  ])
+
+  if (!course) notFound()
+  return (
+    <BasicCourseInfo
+      initialData={course}
+      courseId={courseId}
+      categories={options.categories}
+      levels={options.levels}
+    />
+  )
+}

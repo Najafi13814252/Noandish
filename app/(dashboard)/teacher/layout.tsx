@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
 import TeacherDashboard from './_components/teacher-dashboard'
 import { AnimatedGridPattern } from '@/components/ui/animated-grid-pattern'
 import { cn } from 'cn'
@@ -21,7 +21,9 @@ function CourseCreateLayout({ children }: { children: ReactNode }) {
             />
 
             <section className='w-1/5'>
-                <TeacherDashboard />
+                <Suspense fallback={null}>
+                    <TeacherDashboard />
+                </Suspense>
             </section>
             <div className='space-y-4 w-4/5'>
                 <TeacherHeader />

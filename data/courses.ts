@@ -2,6 +2,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 export async function getCourse(courseId: string) {
+    "use cache: private"
     const user = await getCurrentUser()
 
     if (!user) {
@@ -14,11 +15,8 @@ export async function getCourse(courseId: string) {
             teacherId: user.id
         },
         include: {
-            category: {
-                select: {
-                    name: true
-                }
-            }
+            category: { select: { name: true, slug: true } },
+            level: { select: { name: true, slug: true } }
         }
     })
 
@@ -45,3 +43,23 @@ export async function getCourses() {
 
     return courses
 }
+
+export async function getCourseFormOptions() {
+    "use cache"
+  const [categories, levels] = await Promise.all([
+    prisma.category.findMany({
+      select: { name: true, slug: true },
+      orderBy: { name: "asc" },
+    }),
+    prisma.level.findMany({
+      select: { name: true, slug: true },
+    }),
+  ])
+
+  return {
+    categories,
+    levels
+  }
+}
+
+export type SelectOption = { name: string, slug: string }

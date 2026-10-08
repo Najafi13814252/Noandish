@@ -15,32 +15,38 @@ import { useRouter } from "next/navigation";
 import { Course } from "@/generated/prisma/client";
 import { updateCourse } from "@/actions/courses";
 import toast from "react-hot-toast";
+import { SelectOption } from "@/data/courses";
+import { Spinner } from "@/components/ui/spinner";
 
 
 interface BasicCourseInfoProps {
-  initialData?: Course & {
+  initialData: Course & {
     category: {
       name: string
-    }
+      slug: string
+    } | null
+    level: {
+      name: string
+      slug: string
+    } | null
   }
   courseId: string
+  categories: SelectOption[]
+  levels: SelectOption[]
 }
 
-const CATEGORY_ITEMS = ["فرانت‌اند", "بک اند"];
-const LEVEL_ITEMS = ["مقدماتی", "متوسط", "پیشرفته", "مقدماتی تا پیشرفته",];
-
-function BasicCourseInfo({initialData, courseId}: BasicCourseInfoProps) {
+function BasicCourseInfo({ initialData, courseId, categories, levels }: BasicCourseInfoProps) {
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
 
   const form = useForm<BasicCourseInfoForm>({
     resolver: zodResolver(basicCourseInfoSchema),
     defaultValues: {
-      title: "",
-      category: "",
-      level: "",
-      price: "",
-      discount: "",
+      title: initialData.title ?? "",
+      category: initialData.category?.slug ?? "",
+      level: initialData.level?.slug ?? "",
+      price: initialData.price?.toString() ?? "",
+      discount: initialData.discount?.toString() ?? "",
     },
   });
 
@@ -48,7 +54,7 @@ function BasicCourseInfo({initialData, courseId}: BasicCourseInfoProps) {
     startTransition(async () => {
       try {
         await updateCourse(courseId, values)
-        toast.success("دوره با موفقست بروزرسانی شد")
+        toast.success("دوره با موفقیت بروزرسانی شد")
         router.refresh()
       } catch {
         toast.error("خطایی رخ داده است")
@@ -94,9 +100,12 @@ function BasicCourseInfo({initialData, courseId}: BasicCourseInfoProps) {
                     </FieldLabel>
 
                     <Combobox
-                      items={CATEGORY_ITEMS}
-                      value={field.value}
-                      onValueChange={field.onChange}
+                      items={categories}
+                      value={categories.find((c) => c.slug === field.value) ?? null}
+                      onValueChange={(item) => field.onChange(item?.slug ?? "")}
+                      itemToStringLabel={(item) => item.name}
+                      itemToStringValue={(item) => item.slug}
+
                     >
                       <ComboboxInput
                         id={field.name}
@@ -107,8 +116,8 @@ function BasicCourseInfo({initialData, courseId}: BasicCourseInfoProps) {
                       <ComboboxContent>
                         <ComboboxList>
                           {(item) => (
-                            <ComboboxItem key={item} value={item}>
-                              {item}
+                            <ComboboxItem key={item.slug} value={item}>
+                              {item.name}
                             </ComboboxItem>
                           )}
                         </ComboboxList>
@@ -132,9 +141,11 @@ function BasicCourseInfo({initialData, courseId}: BasicCourseInfoProps) {
                     </FieldLabel>
 
                     <Combobox
-                      items={LEVEL_ITEMS}
-                      value={field.value}
-                      onValueChange={field.onChange}
+                      items={levels}
+                      value={levels.find((c) => c.slug === field.value) ?? null}
+                      onValueChange={(item) => field.onChange(item?.slug ?? "")}
+                      itemToStringLabel={(item) => item.name}
+                      itemToStringValue={(item) => item.slug}
                     >
                       <ComboboxInput
                         id={field.name}
@@ -145,8 +156,8 @@ function BasicCourseInfo({initialData, courseId}: BasicCourseInfoProps) {
                       <ComboboxContent>
                         <ComboboxList>
                           {(item) => (
-                            <ComboboxItem key={item} value={item}>
-                              {item}
+                            <ComboboxItem key={item.slug} value={item}>
+                              {item.name}
                             </ComboboxItem>
                           )}
                         </ComboboxList>
@@ -198,7 +209,12 @@ function BasicCourseInfo({initialData, courseId}: BasicCourseInfoProps) {
           </FieldGroup>
 
           <Button type="submit">
-           {isPending ? 'درحال بروزرسانی' : ' ثبت تغییرات'}
+            {isPending ? (
+              <div className="flex items-center gap-x-2">
+                <Spinner />
+                درحال بروزرسانی
+              </div>
+            ) : ' ثبت تغییرات'}
           </Button>
         </form>
       </StepBox>
