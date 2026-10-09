@@ -16,7 +16,11 @@ export async function getCourse(courseId: string) {
         },
         include: {
             category: { select: { name: true, slug: true } },
-            level: { select: { name: true, slug: true } }
+            level: { select: { name: true, slug: true } },
+            chapters: {
+                orderBy: { position: "asc" },
+                include: { lessons: { orderBy: { position: "asc" } } },
+            },
         }
     })
 
@@ -46,20 +50,20 @@ export async function getCourses() {
 
 export async function getCourseFormOptions() {
     "use cache"
-  const [categories, levels] = await Promise.all([
-    prisma.category.findMany({
-      select: { name: true, slug: true },
-      orderBy: { name: "asc" },
-    }),
-    prisma.level.findMany({
-      select: { name: true, slug: true },
-    }),
-  ])
+    const [categories, levels] = await Promise.all([
+        prisma.category.findMany({
+            select: { name: true, slug: true },
+            orderBy: { name: "asc" },
+        }),
+        prisma.level.findMany({
+            select: { name: true, slug: true },
+        }),
+    ])
 
-  return {
-    categories,
-    levels
-  }
+    return {
+        categories,
+        levels
+    }
 }
 
 export type SelectOption = { name: string, slug: string }

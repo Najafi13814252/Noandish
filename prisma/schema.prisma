@@ -100,6 +100,7 @@ model Lesson {
   posterUrl String? @db.Text
   duration  Float?
   isLock    Boolean @default(false)
+  isFree    Boolean @default(false)
   position  Int
   chapterId String
   chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)

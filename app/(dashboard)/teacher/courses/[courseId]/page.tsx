@@ -2,18 +2,21 @@ import { getCourse, getCourseFormOptions } from '@/data/courses';
 import BasicCourseInfo from './_components/basic-course-info';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
+import CourseDescriptions from './_components/course-descriptions';
+import CourseImage from './_components/course-image';
+import CourseChapters from './_components/course-chapters';
 
 type Params = Promise<{ courseId: string }>;
 
-function CourseCreatePage({params}: {params: Params}) {
+function CourseCreatePage({ params }: { params: Params }) {
 
   return (
     <div
       className='grid grid-cols-1 gap-6 lg:grid-cols-3'>
       {/* فرم‌های تکمیل دوره (2/3 صفحه) */}
-      <div className='lg:col-span-2'>
+      <div className='lg:col-span-2 space-y-6'>
         <Suspense fallback={null}>
-          <CourseInfoHandle params={params} />
+          <CourseDetailsHandle params={params} />
         </Suspense>
       </div>
 
@@ -25,7 +28,7 @@ function CourseCreatePage({params}: {params: Params}) {
 
 export default CourseCreatePage;
 
-async function CourseInfoHandle({ params }: { params: Params }) {
+async function CourseDetailsHandle({ params }: { params: Params }) {
 
   const { courseId } = await params;
 
@@ -36,11 +39,39 @@ async function CourseInfoHandle({ params }: { params: Params }) {
 
   if (!course) notFound()
   return (
-    <BasicCourseInfo
-      initialData={course}
-      courseId={courseId}
-      categories={options.categories}
-      levels={options.levels}
-    />
+    <>
+      <BasicCourseInfo
+        initialData={course}
+        courseId={courseId}
+        categories={options.categories}
+        levels={options.levels}
+      />
+
+      <CourseDescriptions
+        courseId={courseId}
+        initialData={course}
+      />
+
+      <CourseImage
+        courseId={courseId}
+        initialImageUrl={course.imageUrl}
+      />
+
+      <CourseChapters
+        courseId={courseId}
+        initialChapters={course.chapters.map(chapter => ({
+          id: chapter.id,
+          title: chapter.title,
+          lessons: chapter.lessons.map(lesson => ({
+            id: lesson.id,
+            title: lesson.title,
+            videoUrl: lesson.videoUrl ?? "",
+            isFree: lesson.isFree,
+          })),
+        }))}
+      />
+
+    </>
+
   )
 }
