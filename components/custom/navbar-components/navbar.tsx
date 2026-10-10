@@ -6,6 +6,7 @@ import { ModeToggle } from "../mode-toggle"
 import { getCurrentUser } from "@/lib/auth"
 import Link from "next/link"
 import { Suspense } from "react"
+import Categories from "./categories"
 
 function Navbar() {
     return (
@@ -16,7 +17,9 @@ function Navbar() {
                 </div>
 
                 <ul className="flex items-center gap-4 text-primary">
-                    <li>دوره‌ها</li>
+                    <li>
+                        <Categories />
+                    </li>
                     <li>مسیر یادگیری</li>
                     <li>مقالات</li>
                     <li>درباره‌ما</li>

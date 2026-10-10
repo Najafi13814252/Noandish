@@ -67,3 +67,41 @@ export async function getCourseFormOptions() {
 }
 
 export type SelectOption = { name: string, slug: string }
+
+export async function getCoursesWithMeta() {
+    "use cache"
+
+    const courses = await prisma.course.findMany({
+        orderBy: { createdAt: "desc" },
+        select: {
+            id: true,
+            title: true,
+            imageUrl: true,
+            price: true,
+            discount: true,
+            teacher: {
+                select: {
+                    user: { select: { name: true, avatar: true } },
+                },
+            },
+            chapters: {
+                select: {
+                    lessons: { select: { duration: true } },
+                },
+            },
+        },
+    })
+
+    return courses.map(({ chapters, teacher, ...course }) => {
+        const lessons = chapters.flatMap((chapter) => chapter.lessons)
+
+        return {
+            ...course,
+            teacher: teacher.user, // { name, avatar }
+            lessonsCount: lessons.length,
+            totalDuration: lessons.reduce((sum, l) => sum + (l.duration ?? 0), 0), // ثانیه
+        }
+    })
+}
+
+export type CourseWithMeta = Awaited<ReturnType<typeof getCoursesWithMeta>>[number]
