@@ -1,6 +1,6 @@
 "use client";
 
-import { Controller, useFieldArray, useForm, type Control } from "react-hook-form";
+import { Controller, useController, useFieldArray, useForm, type Control } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import toast from "react-hot-toast";
@@ -163,7 +163,7 @@ function ChapterItem({ control, index, onRemove }: ChapterItemProps) {
                 variant="outline"
                 size="sm"
                 className="border-dashed border-primary/50 text-primary"
-                onClick={() => append({ title: "", videoUrl: "", isFree: false })}
+                onClick={() => append({ title: "", videoUrl: "", duration: null, isFree: false })}
             >
                 <HugeiconsIcon icon={Add} />
                 افزودن جلسه
@@ -183,6 +183,11 @@ interface LessonItemProps {
 
 function LessonItem({ control, chapterIndex, lessonIndex, onRemove }: LessonItemProps) {
     const base = `chapters.${chapterIndex}.lessons.${lessonIndex}` as const;
+
+    const { field: durationField } = useController({
+        name: `${base}.duration`,
+        control,
+    });
 
     return (
         <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-[1fr_auto_auto_auto]">
@@ -216,8 +221,10 @@ function LessonItem({ control, chapterIndex, lessonIndex, onRemove }: LessonItem
                             label="آپلود ویدئو"
                             doneLabel="تغییر ویدئو"
                             hasValue={!!field.value}
-                            onChange={(url) => {
+                            detectDuration
+                            onChange={(url, duration) => {
                                 field.onChange(url ?? "");
+                                durationField.onChange(url ? duration ?? null : null);
                                 if (url) toast.success("ویدئو آپلود شد");
                             }}
                         />

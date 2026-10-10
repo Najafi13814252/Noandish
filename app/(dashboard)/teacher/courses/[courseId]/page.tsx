@@ -66,6 +66,7 @@ async function CourseDetailsHandle({ params }: { params: Params }) {
             id: lesson.id,
             title: lesson.title,
             videoUrl: lesson.videoUrl ?? "",
+            duration: lesson.duration ?? null,
             isFree: lesson.isFree,
           })),
         }))}

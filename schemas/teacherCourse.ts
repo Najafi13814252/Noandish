@@ -67,6 +67,7 @@ export const lessonSchema = z.object({
         .min(1, "عنوان درس الزامی است")
         .min(3, "عنوان درس باید حداقل ۳ کاراکتر باشد"),
     videoUrl: z.string().optional().or(z.literal("")),
+    duration: z.number().nonnegative().nullable().optional(),
     isFree: z.boolean(),
 });
 

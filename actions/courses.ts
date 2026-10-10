@@ -269,6 +269,7 @@ export async function updateCourseChapters(courseId: string, values: CourseChapt
                 const data = {
                     title: lesson.title,
                     videoUrl: lesson.videoUrl || null,
+                    duration: lesson.videoUrl ? lesson.duration ?? null : null,
                     isFree: lesson.isFree,
                     position: lessonIndex,
                     chapterId,
@@ -301,6 +302,7 @@ export async function updateCourseChapters(courseId: string, values: CourseChapt
                 id: lesson.id,
                 title: lesson.title,
                 videoUrl: lesson.videoUrl ?? "",
+                duration: lesson.duration ?? null,
                 isFree: lesson.isFree,
             })),
         })),
