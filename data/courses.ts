@@ -105,3 +105,50 @@ export async function getCoursesWithMeta() {
 }
 
 export type CourseWithMeta = Awaited<ReturnType<typeof getCoursesWithMeta>>[number]
+
+export async function course(courseId: string) {
+    "use cache"
+
+    const course = await prisma.course.findUnique({
+        where: { id: courseId },
+        include: {
+            level: { select: { name: true, slug: true } },
+            category: { select: { name: true, slug: true } },
+            teacher: {
+                select: {
+                    bio: true,
+                    expertise: true,
+                    user: { select: { name: true, avatar: true } },
+                },
+            },
+            chapters: {
+                orderBy: { position: "asc" },
+                select: {
+                    id: true,
+                    title: true,
+                    position: true,
+                    lessons: {
+                        orderBy: { position: "asc" },
+                        select: {
+                            id: true,
+                            title: true,
+                            duration: true,
+                            isFree: true,
+                        },
+                    },
+                },
+            },
+        },
+    })
+
+    if (!course) return null
+
+    const lessons = course.chapters.flatMap((c) => c.lessons)
+
+    return {
+        ...course,
+        teacher: { ...course.teacher.user, bio: course.teacher.bio, expertise: course.teacher.expertise },
+        lessonsCount: lessons.length,
+        totalDuration: lessons.reduce((sum, l) => sum + (l.duration ?? 0), 0), // ثانیه
+    }
+}
