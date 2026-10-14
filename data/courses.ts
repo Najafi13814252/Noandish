@@ -144,11 +144,19 @@ export async function course(courseId: string) {
     if (!course) return null
 
     const lessons = course.chapters.flatMap((c) => c.lessons)
+    const chapters = course.chapters.flatMap((c) => {
+        return {
+            id: c.id,
+            title: c.title,
+            lessons: c.lessons,
+        }
+    })
 
     return {
         ...course,
         teacher: { ...course.teacher.user, bio: course.teacher.bio, expertise: course.teacher.expertise },
         lessonsCount: lessons.length,
+        chapters,
         totalDuration: lessons.reduce((sum, l) => sum + (l.duration ?? 0), 0), // ثانیه
     }
 }

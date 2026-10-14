@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { ShoppingBagAddIcon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import Image from "next/image"
 
 interface CoursePageProps {
@@ -13,9 +15,9 @@ interface CoursePageProps {
 function CourseHero({ courseImage, courseTitle, courseDescription, coursePrice, courseDiscount }: CoursePageProps) {
     return (
         <section>
-            <Card className="relative overflow-visible">
-                <CardContent className="flex -space-x-12">
-                    <div className="relative w-96 aspect-video shrink-0 translate-x-20">
+            <Card className="relative overflow-visible mr-16">
+                <CardContent className="flex -space-x-16">
+                    <div className="relative w-96 aspect-video shrink-0 translate-x-22">
                         <Image
                             src={courseImage}
                             fill
@@ -43,7 +45,10 @@ function CourseHero({ courseImage, courseTitle, courseDescription, coursePrice, 
                                 </p>
                             </div>
 
-                            <Button>خرید دوره</Button>
+                            <Button size="lg">
+                                <HugeiconsIcon icon={ShoppingBagAddIcon} className="size-5"/>
+                                افزودن به سبد خرید
+                            </Button>
                         </div>
                     </div>
                 </CardContent>
